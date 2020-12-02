@@ -56,7 +56,6 @@ func GetService(open_id string) (UserInfo, error){
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	userInfo := UserInfo{}
 	if err != nil{
-		newErr:=fmt.Errorf("数据上传问题: %v", err)
 		return userInfo,newErr
 	}
 	userData, err := User{OpenId:open_id}.Get(db)
